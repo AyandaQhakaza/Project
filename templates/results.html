@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Online Voting System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Results - Online Voting System</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('results') }}">Results</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <h2>Current Voting Results</h2>
+        <table class="card"> <!-- Apply the 'card' class for styling -->
+            <tr>
+                <th>Candidate</th>
+                <th>Votes</th>
+            </tr>
+            {% for candidate, votes in results_data %}
+            <tr>
+                <td>{{ candidate }}</td>
+                <td>{{ votes }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Online Voting System</p>
+    </footer>
+</body>
+</html>
